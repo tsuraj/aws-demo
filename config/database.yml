@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: aws_demo_development
+
+test:
+  <<: *default
+  database: aws_demo_test
+
+production:
+  <<: *default
+  database: <%= ENV['RDS_DB_NAME'] || 'rails_demo' %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] || 5432 %>
+  sslmode: require
