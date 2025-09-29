@@ -8,3 +8,5 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 Post.create!(title: "Hello", body: "This is a deployment test post.")
+Post.create!(title: "Hello 2", body: "This is a deployment test post.")
+
